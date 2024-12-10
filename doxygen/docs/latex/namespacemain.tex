@@ -1,0 +1,332 @@
+\doxysection{main Namespace Reference}
+\hypertarget{namespacemain}{}\label{namespacemain}\index{main@{main}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemain_a5ee9e2401d2b2079a8da50ba5148ad13}{reduce\+\_\+noise}} (\mbox{\hyperlink{namespacemain_a256ac59b583804c38124f87f3b04d9c5}{audio}}, sr)
+\begin{DoxyCompactList}\small\item\em Gürültü azaltma için bir fonksiyon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a5320bac643d4cbd803b74ee3166ba08d}{extract\+\_\+features}} (file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Öznitelik çıkartmak için bir fonksiyon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a99e9090a4a832f04e0f01ea325c87fdf}{extract\+\_\+features\+\_\+from\+\_\+audio}} (\mbox{\hyperlink{namespacemain_a256ac59b583804c38124f87f3b04d9c5}{audio}}, \mbox{\hyperlink{namespacemain_a272f83ae5cb7d53cef1840980f49870f}{sample\+\_\+rate}})
+\item 
+\mbox{\hyperlink{namespacemain_ac22eea439bf4e90b90685ecef22e53e2}{plot\+\_\+histogram}} (\mbox{\hyperlink{namespacemain_aa21fa27442c6a828f1a922b0caaba260}{features}}, speaker\+\_\+label)
+\item 
+\mbox{\hyperlink{namespacemain_a1e6b7f07a8bd4b7e586d62c6e52467de}{plot\+\_\+mel\+\_\+spectrogram}} (\mbox{\hyperlink{namespacemain_a256ac59b583804c38124f87f3b04d9c5}{audio}}, sr, speaker\+\_\+label)
+\item 
+\mbox{\hyperlink{namespacemain_a1f62c4aed9d7bb3710f69f988abfde68}{transcribe\+\_\+speech}} (\mbox{\hyperlink{namespacemain_a256ac59b583804c38124f87f3b04d9c5}{audio}}, \mbox{\hyperlink{namespacemain_a272f83ae5cb7d53cef1840980f49870f}{sample\+\_\+rate}})
+\item 
+\mbox{\hyperlink{namespacemain_ae4f4863fcffa5cf0968629b42c438a4e}{recognize\+\_\+from\+\_\+microphone}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacemain_a2d839cc774215febcd29858771fc2a42}{ses\+\_\+dosyalari}}
+\item 
+list \mbox{\hyperlink{namespacemain_a845a56d8baaf6cc538971ddcd31a97e5}{konusmaci\+\_\+etiketleri}}
+\item 
+list \mbox{\hyperlink{namespacemain_ad5f9720661246677bcd4274d255b41d6}{X}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacemain_a6b0bd71a6278c506904ee12999c406fe}{y}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemain_aa21fa27442c6a828f1a922b0caaba260}{features}}
+\item 
+\mbox{\hyperlink{namespacemain_a256ac59b583804c38124f87f3b04d9c5}{audio}}
+\item 
+\mbox{\hyperlink{namespacemain_a272f83ae5cb7d53cef1840980f49870f}{sample\+\_\+rate}}
+\item 
+\mbox{\hyperlink{namespacemain_a0c9652ea997bb235268c2f788c995039}{test\+\_\+size}} = max(0.\+2, 3 / len(\mbox{\hyperlink{namespacemain_a6b0bd71a6278c506904ee12999c406fe}{y}}))
+\item 
+\mbox{\hyperlink{namespacemain_a68f79152d20e10343fcfa39f736b16a9}{konuşmacı\+\_\+indeksleri}} = defaultdict(list)
+\item 
+\mbox{\hyperlink{namespacemain_a28423dd1c811407549982ebc13b3ebae}{X\+\_\+train}}
+\item 
+\mbox{\hyperlink{namespacemain_af70dc071170fa895fba5603dc28320e9}{X\+\_\+test}}
+\item 
+\mbox{\hyperlink{namespacemain_ab593543e69177b99938167addecb9159}{y\+\_\+train}}
+\item 
+\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}
+\item 
+\mbox{\hyperlink{namespacemain_a1bda10c9754594a81690c5ec74b21b78}{train\+\_\+size}} = int(len(indeksler) \texorpdfstring{$\ast$}{*} (1 -\/ \mbox{\hyperlink{namespacemain_a0c9652ea997bb235268c2f788c995039}{test\+\_\+size}}))
+\item 
+\mbox{\hyperlink{namespacemain_aeb3f423cd9bbc466a283f724172def5a}{train\+\_\+indeksler}} = indeksler\mbox{[}\+:\mbox{\hyperlink{namespacemain_a1bda10c9754594a81690c5ec74b21b78}{train\+\_\+size}}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemain_a14dff9864e402cd8b4b1786d8bb400c4}{test\+\_\+indeksler}} = indeksler\mbox{[}train\+\_\+size\+:\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemain_af631c0736849685d5d99516a81c023d2}{scaler}} = Standard\+Scaler()
+\item 
+\mbox{\hyperlink{namespacemain_a68554bc08bf8532f7a348f8aaef0bfbb}{X\+\_\+train\+\_\+scaled}} = scaler.\+fit\+\_\+transform(\mbox{\hyperlink{namespacemain_a28423dd1c811407549982ebc13b3ebae}{X\+\_\+train}})
+\item 
+\mbox{\hyperlink{namespacemain_a5f7c9c9e6d14fb0a4ae8d8802158ef55}{X\+\_\+test\+\_\+scaled}} = scaler.\+transform(\mbox{\hyperlink{namespacemain_af70dc071170fa895fba5603dc28320e9}{X\+\_\+test}})
+\item 
+\mbox{\hyperlink{namespacemain_ab3349edc5bf5149822ced4642a744384}{model}} = SVC(kernel=\textquotesingle{}linear\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacemain_ab512fd3fe6f30c9effbe186dfbf0e65f}{train\+\_\+accuracy}} = model.\+score(\mbox{\hyperlink{namespacemain_a68554bc08bf8532f7a348f8aaef0bfbb}{X\+\_\+train\+\_\+scaled}}, \mbox{\hyperlink{namespacemain_ab593543e69177b99938167addecb9159}{y\+\_\+train}})
+\item 
+\mbox{\hyperlink{namespacemain_a4a0e35747aafb64ba61a5b4f4b68c598}{test\+\_\+accuracy}} = model.\+score(\mbox{\hyperlink{namespacemain_a5f7c9c9e6d14fb0a4ae8d8802158ef55}{X\+\_\+test\+\_\+scaled}}, \mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}})
+\item 
+\mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}} = model.\+predict(\mbox{\hyperlink{namespacemain_a5f7c9c9e6d14fb0a4ae8d8802158ef55}{X\+\_\+test\+\_\+scaled}})
+\item 
+\mbox{\hyperlink{namespacemain_a63079f610d9f2c2c2c47dd116ac40405}{accuracy}} = accuracy\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}})
+\item 
+\mbox{\hyperlink{namespacemain_a56720f23dff244fd884c5b6534d1ee3b}{precision}} = precision\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}}, average=\textquotesingle{}macro\textquotesingle{}, zero\+\_\+division=0)
+\item 
+\mbox{\hyperlink{namespacemain_ab350bed3dc2924bdd60a654924af568f}{recall}} = recall\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}}, average=\textquotesingle{}macro\textquotesingle{}, zero\+\_\+division=0)
+\item 
+\mbox{\hyperlink{namespacemain_a052a7f336e26bf89ef67653cadbd9b3e}{f1}} = f1\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}}, average=\textquotesingle{}macro\textquotesingle{}, zero\+\_\+division=0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacemain_a5320bac643d4cbd803b74ee3166ba08d}\index{main@{main}!extract\_features@{extract\_features}}
+\index{extract\_features@{extract\_features}!main@{main}}
+\doxysubsubsection{\texorpdfstring{extract\_features()}{extract\_features()}}
+{\footnotesize\ttfamily \label{namespacemain_a5320bac643d4cbd803b74ee3166ba08d} 
+main.\+extract\+\_\+features (\begin{DoxyParamCaption}\item[{}]{file\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+Öznitelik çıkartmak için bir fonksiyon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+path} & Ses dosyasının yolu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Öznitelik vektörü, ses verisi, örnekleme oranı 
+\end{DoxyReturn}
+\Hypertarget{namespacemain_a99e9090a4a832f04e0f01ea325c87fdf}\index{main@{main}!extract\_features\_from\_audio@{extract\_features\_from\_audio}}
+\index{extract\_features\_from\_audio@{extract\_features\_from\_audio}!main@{main}}
+\doxysubsubsection{\texorpdfstring{extract\_features\_from\_audio()}{extract\_features\_from\_audio()}}
+{\footnotesize\ttfamily \label{namespacemain_a99e9090a4a832f04e0f01ea325c87fdf} 
+main.\+extract\+\_\+features\+\_\+from\+\_\+audio (\begin{DoxyParamCaption}\item[{}]{audio}{, }\item[{}]{sample\+\_\+rate}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacemain_ac22eea439bf4e90b90685ecef22e53e2}\index{main@{main}!plot\_histogram@{plot\_histogram}}
+\index{plot\_histogram@{plot\_histogram}!main@{main}}
+\doxysubsubsection{\texorpdfstring{plot\_histogram()}{plot\_histogram()}}
+{\footnotesize\ttfamily \label{namespacemain_ac22eea439bf4e90b90685ecef22e53e2} 
+main.\+plot\+\_\+histogram (\begin{DoxyParamCaption}\item[{}]{features}{, }\item[{}]{speaker\+\_\+label}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacemain_a1e6b7f07a8bd4b7e586d62c6e52467de}\index{main@{main}!plot\_mel\_spectrogram@{plot\_mel\_spectrogram}}
+\index{plot\_mel\_spectrogram@{plot\_mel\_spectrogram}!main@{main}}
+\doxysubsubsection{\texorpdfstring{plot\_mel\_spectrogram()}{plot\_mel\_spectrogram()}}
+{\footnotesize\ttfamily \label{namespacemain_a1e6b7f07a8bd4b7e586d62c6e52467de} 
+main.\+plot\+\_\+mel\+\_\+spectrogram (\begin{DoxyParamCaption}\item[{}]{audio}{, }\item[{}]{sr}{, }\item[{}]{speaker\+\_\+label}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacemain_ae4f4863fcffa5cf0968629b42c438a4e}\index{main@{main}!recognize\_from\_microphone@{recognize\_from\_microphone}}
+\index{recognize\_from\_microphone@{recognize\_from\_microphone}!main@{main}}
+\doxysubsubsection{\texorpdfstring{recognize\_from\_microphone()}{recognize\_from\_microphone()}}
+{\footnotesize\ttfamily \label{namespacemain_ae4f4863fcffa5cf0968629b42c438a4e} 
+main.\+recognize\+\_\+from\+\_\+microphone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacemain_a5ee9e2401d2b2079a8da50ba5148ad13}\index{main@{main}!reduce\_noise@{reduce\_noise}}
+\index{reduce\_noise@{reduce\_noise}!main@{main}}
+\doxysubsubsection{\texorpdfstring{reduce\_noise()}{reduce\_noise()}}
+{\footnotesize\ttfamily \label{namespacemain_a5ee9e2401d2b2079a8da50ba5148ad13} 
+main.\+reduce\+\_\+noise (\begin{DoxyParamCaption}\item[{}]{audio}{, }\item[{}]{sr}{}\end{DoxyParamCaption})}
+
+
+
+Gürültü azaltma için bir fonksiyon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em audio} & Ses verisi \\
+\hline
+{\em sr} & Örnekleme oranı \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Gürültüsü azaltılmış ses verisi Gürültü azaltma için bir fonksiyon tanımlayalım 
+\end{DoxyReturn}
+\Hypertarget{namespacemain_a1f62c4aed9d7bb3710f69f988abfde68}\index{main@{main}!transcribe\_speech@{transcribe\_speech}}
+\index{transcribe\_speech@{transcribe\_speech}!main@{main}}
+\doxysubsubsection{\texorpdfstring{transcribe\_speech()}{transcribe\_speech()}}
+{\footnotesize\ttfamily \label{namespacemain_a1f62c4aed9d7bb3710f69f988abfde68} 
+main.\+transcribe\+\_\+speech (\begin{DoxyParamCaption}\item[{}]{audio}{, }\item[{}]{sample\+\_\+rate}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacemain_a63079f610d9f2c2c2c47dd116ac40405}\index{main@{main}!accuracy@{accuracy}}
+\index{accuracy@{accuracy}!main@{main}}
+\doxysubsubsection{\texorpdfstring{accuracy}{accuracy}}
+{\footnotesize\ttfamily \label{namespacemain_a63079f610d9f2c2c2c47dd116ac40405} 
+main.\+accuracy = accuracy\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}})}
+
+\Hypertarget{namespacemain_a256ac59b583804c38124f87f3b04d9c5}\index{main@{main}!audio@{audio}}
+\index{audio@{audio}!main@{main}}
+\doxysubsubsection{\texorpdfstring{audio}{audio}}
+{\footnotesize\ttfamily \label{namespacemain_a256ac59b583804c38124f87f3b04d9c5} 
+main.\+audio}
+
+\Hypertarget{namespacemain_a052a7f336e26bf89ef67653cadbd9b3e}\index{main@{main}!f1@{f1}}
+\index{f1@{f1}!main@{main}}
+\doxysubsubsection{\texorpdfstring{f1}{f1}}
+{\footnotesize\ttfamily \label{namespacemain_a052a7f336e26bf89ef67653cadbd9b3e} 
+main.\+f1 = f1\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}}, average=\textquotesingle{}macro\textquotesingle{}, zero\+\_\+division=0)}
+
+\Hypertarget{namespacemain_aa21fa27442c6a828f1a922b0caaba260}\index{main@{main}!features@{features}}
+\index{features@{features}!main@{main}}
+\doxysubsubsection{\texorpdfstring{features}{features}}
+{\footnotesize\ttfamily \label{namespacemain_aa21fa27442c6a828f1a922b0caaba260} 
+main.\+features}
+
+\Hypertarget{namespacemain_a68f79152d20e10343fcfa39f736b16a9}\index{main@{main}!konuşmacı\_indeksleri@{konuşmacı\_indeksleri}}
+\index{konuşmacı\_indeksleri@{konuşmacı\_indeksleri}!main@{main}}
+\doxysubsubsection{\texorpdfstring{konuşmacı\_indeksleri}{konuşmacı\_indeksleri}}
+{\footnotesize\ttfamily \label{namespacemain_a68f79152d20e10343fcfa39f736b16a9} 
+main.\+konuşmacı\+\_\+indeksleri = defaultdict(list)}
+
+\Hypertarget{namespacemain_a845a56d8baaf6cc538971ddcd31a97e5}\index{main@{main}!konusmaci\_etiketleri@{konusmaci\_etiketleri}}
+\index{konusmaci\_etiketleri@{konusmaci\_etiketleri}!main@{main}}
+\doxysubsubsection{\texorpdfstring{konusmaci\_etiketleri}{konusmaci\_etiketleri}}
+{\footnotesize\ttfamily \label{namespacemain_a845a56d8baaf6cc538971ddcd31a97e5} 
+list main.\+konusmaci\+\_\+etiketleri}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ [}
+\DoxyCodeLine{00002\ \ \ \ \ \textcolor{stringliteral}{"{}konusmaci1"{}},\ \textcolor{stringliteral}{"{}konusmaci1"{}},}
+\DoxyCodeLine{00003\ \ \ \ \ \textcolor{stringliteral}{"{}konusmaci2"{}},\ \textcolor{stringliteral}{"{}konusmaci2"{}},}
+\DoxyCodeLine{00004\ \ \ \ \ \textcolor{stringliteral}{"{}konusmaci3"{}},\ \textcolor{stringliteral}{"{}konusmaci3"{}},}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{stringliteral}{"{}konusmaci4"{}},\ \textcolor{stringliteral}{"{}konusmaci4"{}}}
+\DoxyCodeLine{00006\ ]}
+
+\end{DoxyCode}
+\Hypertarget{namespacemain_ab3349edc5bf5149822ced4642a744384}\index{main@{main}!model@{model}}
+\index{model@{model}!main@{main}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily \label{namespacemain_ab3349edc5bf5149822ced4642a744384} 
+main.\+model = SVC(kernel=\textquotesingle{}linear\textquotesingle{})}
+
+\Hypertarget{namespacemain_a56720f23dff244fd884c5b6534d1ee3b}\index{main@{main}!precision@{precision}}
+\index{precision@{precision}!main@{main}}
+\doxysubsubsection{\texorpdfstring{precision}{precision}}
+{\footnotesize\ttfamily \label{namespacemain_a56720f23dff244fd884c5b6534d1ee3b} 
+main.\+precision = precision\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}}, average=\textquotesingle{}macro\textquotesingle{}, zero\+\_\+division=0)}
+
+\Hypertarget{namespacemain_ab350bed3dc2924bdd60a654924af568f}\index{main@{main}!recall@{recall}}
+\index{recall@{recall}!main@{main}}
+\doxysubsubsection{\texorpdfstring{recall}{recall}}
+{\footnotesize\ttfamily \label{namespacemain_ab350bed3dc2924bdd60a654924af568f} 
+main.\+recall = recall\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}}, average=\textquotesingle{}macro\textquotesingle{}, zero\+\_\+division=0)}
+
+\Hypertarget{namespacemain_a272f83ae5cb7d53cef1840980f49870f}\index{main@{main}!sample\_rate@{sample\_rate}}
+\index{sample\_rate@{sample\_rate}!main@{main}}
+\doxysubsubsection{\texorpdfstring{sample\_rate}{sample\_rate}}
+{\footnotesize\ttfamily \label{namespacemain_a272f83ae5cb7d53cef1840980f49870f} 
+main.\+sample\+\_\+rate}
+
+\Hypertarget{namespacemain_af631c0736849685d5d99516a81c023d2}\index{main@{main}!scaler@{scaler}}
+\index{scaler@{scaler}!main@{main}}
+\doxysubsubsection{\texorpdfstring{scaler}{scaler}}
+{\footnotesize\ttfamily \label{namespacemain_af631c0736849685d5d99516a81c023d2} 
+main.\+scaler = Standard\+Scaler()}
+
+\Hypertarget{namespacemain_a2d839cc774215febcd29858771fc2a42}\index{main@{main}!ses\_dosyalari@{ses\_dosyalari}}
+\index{ses\_dosyalari@{ses\_dosyalari}!main@{main}}
+\doxysubsubsection{\texorpdfstring{ses\_dosyalari}{ses\_dosyalari}}
+{\footnotesize\ttfamily \label{namespacemain_a2d839cc774215febcd29858771fc2a42} 
+list main.\+ses\+\_\+dosyalari}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ [}
+\DoxyCodeLine{00002\ \ \ \ \ \textcolor{stringliteral}{"{}konusmaci1/nurullah\_train.wav"{}},\ \textcolor{stringliteral}{"{}konusmaci1/nurullah\_test.wav"{}},}
+\DoxyCodeLine{00003\ \ \ \ \ \textcolor{stringliteral}{"{}konusmaci2/enes\_train.wav"{}},\ \textcolor{stringliteral}{"{}konusmaci2/enes\_test1.wav"{}},}
+\DoxyCodeLine{00004\ \ \ \ \ \textcolor{stringliteral}{"{}konusmaci3/voice\_yasin.wav"{}},\ \textcolor{stringliteral}{"{}konusmaci3/yasin\_test1.wav"{}},}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{stringliteral}{"{}konusmaci4/halil\_train.wav"{}},\ \textcolor{stringliteral}{"{}konusmaci4/halil\_test.wav"{}}}
+\DoxyCodeLine{00006\ ]}
+
+\end{DoxyCode}
+\Hypertarget{namespacemain_a4a0e35747aafb64ba61a5b4f4b68c598}\index{main@{main}!test\_accuracy@{test\_accuracy}}
+\index{test\_accuracy@{test\_accuracy}!main@{main}}
+\doxysubsubsection{\texorpdfstring{test\_accuracy}{test\_accuracy}}
+{\footnotesize\ttfamily \label{namespacemain_a4a0e35747aafb64ba61a5b4f4b68c598} 
+main.\+test\+\_\+accuracy = model.\+score(\mbox{\hyperlink{namespacemain_a5f7c9c9e6d14fb0a4ae8d8802158ef55}{X\+\_\+test\+\_\+scaled}}, \mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}})}
+
+\Hypertarget{namespacemain_a14dff9864e402cd8b4b1786d8bb400c4}\index{main@{main}!test\_indeksler@{test\_indeksler}}
+\index{test\_indeksler@{test\_indeksler}!main@{main}}
+\doxysubsubsection{\texorpdfstring{test\_indeksler}{test\_indeksler}}
+{\footnotesize\ttfamily \label{namespacemain_a14dff9864e402cd8b4b1786d8bb400c4} 
+main.\+test\+\_\+indeksler = indeksler\mbox{[}train\+\_\+size\+:\mbox{]}}
+
+\Hypertarget{namespacemain_a0c9652ea997bb235268c2f788c995039}\index{main@{main}!test\_size@{test\_size}}
+\index{test\_size@{test\_size}!main@{main}}
+\doxysubsubsection{\texorpdfstring{test\_size}{test\_size}}
+{\footnotesize\ttfamily \label{namespacemain_a0c9652ea997bb235268c2f788c995039} 
+main.\+test\+\_\+size = max(0.\+2, 3 / len(\mbox{\hyperlink{namespacemain_a6b0bd71a6278c506904ee12999c406fe}{y}}))}
+
+\Hypertarget{namespacemain_ab512fd3fe6f30c9effbe186dfbf0e65f}\index{main@{main}!train\_accuracy@{train\_accuracy}}
+\index{train\_accuracy@{train\_accuracy}!main@{main}}
+\doxysubsubsection{\texorpdfstring{train\_accuracy}{train\_accuracy}}
+{\footnotesize\ttfamily \label{namespacemain_ab512fd3fe6f30c9effbe186dfbf0e65f} 
+main.\+train\+\_\+accuracy = model.\+score(\mbox{\hyperlink{namespacemain_a68554bc08bf8532f7a348f8aaef0bfbb}{X\+\_\+train\+\_\+scaled}}, \mbox{\hyperlink{namespacemain_ab593543e69177b99938167addecb9159}{y\+\_\+train}})}
+
+\Hypertarget{namespacemain_aeb3f423cd9bbc466a283f724172def5a}\index{main@{main}!train\_indeksler@{train\_indeksler}}
+\index{train\_indeksler@{train\_indeksler}!main@{main}}
+\doxysubsubsection{\texorpdfstring{train\_indeksler}{train\_indeksler}}
+{\footnotesize\ttfamily \label{namespacemain_aeb3f423cd9bbc466a283f724172def5a} 
+main.\+train\+\_\+indeksler = indeksler\mbox{[}\+:\mbox{\hyperlink{namespacemain_a1bda10c9754594a81690c5ec74b21b78}{train\+\_\+size}}\mbox{]}}
+
+\Hypertarget{namespacemain_a1bda10c9754594a81690c5ec74b21b78}\index{main@{main}!train\_size@{train\_size}}
+\index{train\_size@{train\_size}!main@{main}}
+\doxysubsubsection{\texorpdfstring{train\_size}{train\_size}}
+{\footnotesize\ttfamily \label{namespacemain_a1bda10c9754594a81690c5ec74b21b78} 
+main.\+train\+\_\+size = int(len(indeksler) \texorpdfstring{$\ast$}{*} (1 -\/ \mbox{\hyperlink{namespacemain_a0c9652ea997bb235268c2f788c995039}{test\+\_\+size}}))}
+
+\Hypertarget{namespacemain_ad5f9720661246677bcd4274d255b41d6}\index{main@{main}!X@{X}}
+\index{X@{X}!main@{main}}
+\doxysubsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily \label{namespacemain_ad5f9720661246677bcd4274d255b41d6} 
+list main.\+X = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{namespacemain_af70dc071170fa895fba5603dc28320e9}\index{main@{main}!X\_test@{X\_test}}
+\index{X\_test@{X\_test}!main@{main}}
+\doxysubsubsection{\texorpdfstring{X\_test}{X\_test}}
+{\footnotesize\ttfamily \label{namespacemain_af70dc071170fa895fba5603dc28320e9} 
+main.\+X\+\_\+test}
+
+\Hypertarget{namespacemain_a5f7c9c9e6d14fb0a4ae8d8802158ef55}\index{main@{main}!X\_test\_scaled@{X\_test\_scaled}}
+\index{X\_test\_scaled@{X\_test\_scaled}!main@{main}}
+\doxysubsubsection{\texorpdfstring{X\_test\_scaled}{X\_test\_scaled}}
+{\footnotesize\ttfamily \label{namespacemain_a5f7c9c9e6d14fb0a4ae8d8802158ef55} 
+main.\+X\+\_\+test\+\_\+scaled = scaler.\+transform(\mbox{\hyperlink{namespacemain_af70dc071170fa895fba5603dc28320e9}{X\+\_\+test}})}
+
+\Hypertarget{namespacemain_a28423dd1c811407549982ebc13b3ebae}\index{main@{main}!X\_train@{X\_train}}
+\index{X\_train@{X\_train}!main@{main}}
+\doxysubsubsection{\texorpdfstring{X\_train}{X\_train}}
+{\footnotesize\ttfamily \label{namespacemain_a28423dd1c811407549982ebc13b3ebae} 
+main.\+X\+\_\+train}
+
+\Hypertarget{namespacemain_a68554bc08bf8532f7a348f8aaef0bfbb}\index{main@{main}!X\_train\_scaled@{X\_train\_scaled}}
+\index{X\_train\_scaled@{X\_train\_scaled}!main@{main}}
+\doxysubsubsection{\texorpdfstring{X\_train\_scaled}{X\_train\_scaled}}
+{\footnotesize\ttfamily \label{namespacemain_a68554bc08bf8532f7a348f8aaef0bfbb} 
+main.\+X\+\_\+train\+\_\+scaled = scaler.\+fit\+\_\+transform(\mbox{\hyperlink{namespacemain_a28423dd1c811407549982ebc13b3ebae}{X\+\_\+train}})}
+
+\Hypertarget{namespacemain_a6b0bd71a6278c506904ee12999c406fe}\index{main@{main}!y@{y}}
+\index{y@{y}!main@{main}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily \label{namespacemain_a6b0bd71a6278c506904ee12999c406fe} 
+list main.\+y = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{namespacemain_a9279e7cb901527b6d785b0a5474e1970}\index{main@{main}!y\_pred@{y\_pred}}
+\index{y\_pred@{y\_pred}!main@{main}}
+\doxysubsubsection{\texorpdfstring{y\_pred}{y\_pred}}
+{\footnotesize\ttfamily \label{namespacemain_a9279e7cb901527b6d785b0a5474e1970} 
+main.\+y\+\_\+pred = model.\+predict(\mbox{\hyperlink{namespacemain_a5f7c9c9e6d14fb0a4ae8d8802158ef55}{X\+\_\+test\+\_\+scaled}})}
+
+\Hypertarget{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}\index{main@{main}!y\_test@{y\_test}}
+\index{y\_test@{y\_test}!main@{main}}
+\doxysubsubsection{\texorpdfstring{y\_test}{y\_test}}
+{\footnotesize\ttfamily \label{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef} 
+main.\+y\+\_\+test}
+
+\Hypertarget{namespacemain_ab593543e69177b99938167addecb9159}\index{main@{main}!y\_train@{y\_train}}
+\index{y\_train@{y\_train}!main@{main}}
+\doxysubsubsection{\texorpdfstring{y\_train}{y\_train}}
+{\footnotesize\ttfamily \label{namespacemain_ab593543e69177b99938167addecb9159} 
+main.\+y\+\_\+train}
+

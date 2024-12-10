@@ -1,0 +1,83 @@
+\doxysection{C\+:/\+Users/orakn/\+Desktop/\+Voice\+Reco/python\+Project/main.py File Reference}
+\hypertarget{main_8py}{}\label{main_8py}\index{C:/Users/orakn/Desktop/VoiceReco/pythonProject/main.py@{C:/Users/orakn/Desktop/VoiceReco/pythonProject/main.py}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemain}{main}}
+\item 
+namespace \mbox{\hyperlink{namespaceses__tanima}{ses\+\_\+tanima}}
+\begin{DoxyCompactList}\small\item\em Ses Tanıma Projesi. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemain_a5ee9e2401d2b2079a8da50ba5148ad13}{main.\+reduce\+\_\+noise}} (\mbox{\hyperlink{namespacemain_a256ac59b583804c38124f87f3b04d9c5}{audio}}, sr)
+\begin{DoxyCompactList}\small\item\em Gürültü azaltma için bir fonksiyon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a5320bac643d4cbd803b74ee3166ba08d}{main.\+extract\+\_\+features}} (file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Öznitelik çıkartmak için bir fonksiyon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a99e9090a4a832f04e0f01ea325c87fdf}{main.\+extract\+\_\+features\+\_\+from\+\_\+audio}} (\mbox{\hyperlink{namespacemain_a256ac59b583804c38124f87f3b04d9c5}{audio}}, \mbox{\hyperlink{namespacemain_a272f83ae5cb7d53cef1840980f49870f}{sample\+\_\+rate}})
+\item 
+\mbox{\hyperlink{namespacemain_ac22eea439bf4e90b90685ecef22e53e2}{main.\+plot\+\_\+histogram}} (\mbox{\hyperlink{namespacemain_aa21fa27442c6a828f1a922b0caaba260}{features}}, speaker\+\_\+label)
+\item 
+\mbox{\hyperlink{namespacemain_a1e6b7f07a8bd4b7e586d62c6e52467de}{main.\+plot\+\_\+mel\+\_\+spectrogram}} (\mbox{\hyperlink{namespacemain_a256ac59b583804c38124f87f3b04d9c5}{audio}}, sr, speaker\+\_\+label)
+\item 
+\mbox{\hyperlink{namespacemain_a1f62c4aed9d7bb3710f69f988abfde68}{main.\+transcribe\+\_\+speech}} (\mbox{\hyperlink{namespacemain_a256ac59b583804c38124f87f3b04d9c5}{audio}}, \mbox{\hyperlink{namespacemain_a272f83ae5cb7d53cef1840980f49870f}{sample\+\_\+rate}})
+\item 
+\mbox{\hyperlink{namespacemain_ae4f4863fcffa5cf0968629b42c438a4e}{main.\+recognize\+\_\+from\+\_\+microphone}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacemain_a2d839cc774215febcd29858771fc2a42}{main.\+ses\+\_\+dosyalari}}
+\item 
+list \mbox{\hyperlink{namespacemain_a845a56d8baaf6cc538971ddcd31a97e5}{main.\+konusmaci\+\_\+etiketleri}}
+\item 
+list \mbox{\hyperlink{namespacemain_ad5f9720661246677bcd4274d255b41d6}{main.\+X}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacemain_a6b0bd71a6278c506904ee12999c406fe}{main.\+y}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemain_aa21fa27442c6a828f1a922b0caaba260}{main.\+features}}
+\item 
+\mbox{\hyperlink{namespacemain_a256ac59b583804c38124f87f3b04d9c5}{main.\+audio}}
+\item 
+\mbox{\hyperlink{namespacemain_a272f83ae5cb7d53cef1840980f49870f}{main.\+sample\+\_\+rate}}
+\item 
+\mbox{\hyperlink{namespacemain_a0c9652ea997bb235268c2f788c995039}{main.\+test\+\_\+size}} = max(0.\+2, 3 / len(\mbox{\hyperlink{namespacemain_a6b0bd71a6278c506904ee12999c406fe}{y}}))
+\item 
+\mbox{\hyperlink{namespacemain_a68f79152d20e10343fcfa39f736b16a9}{main.\+konuşmacı\+\_\+indeksleri}} = defaultdict(list)
+\item 
+\mbox{\hyperlink{namespacemain_a28423dd1c811407549982ebc13b3ebae}{main.\+X\+\_\+train}}
+\item 
+\mbox{\hyperlink{namespacemain_af70dc071170fa895fba5603dc28320e9}{main.\+X\+\_\+test}}
+\item 
+\mbox{\hyperlink{namespacemain_ab593543e69177b99938167addecb9159}{main.\+y\+\_\+train}}
+\item 
+\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{main.\+y\+\_\+test}}
+\item 
+\mbox{\hyperlink{namespacemain_a1bda10c9754594a81690c5ec74b21b78}{main.\+train\+\_\+size}} = int(len(indeksler) \texorpdfstring{$\ast$}{*} (1 -\/ \mbox{\hyperlink{namespacemain_a0c9652ea997bb235268c2f788c995039}{test\+\_\+size}}))
+\item 
+\mbox{\hyperlink{namespacemain_aeb3f423cd9bbc466a283f724172def5a}{main.\+train\+\_\+indeksler}} = indeksler\mbox{[}\+:\mbox{\hyperlink{namespacemain_a1bda10c9754594a81690c5ec74b21b78}{train\+\_\+size}}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemain_a14dff9864e402cd8b4b1786d8bb400c4}{main.\+test\+\_\+indeksler}} = indeksler\mbox{[}train\+\_\+size\+:\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemain_af631c0736849685d5d99516a81c023d2}{main.\+scaler}} = Standard\+Scaler()
+\item 
+\mbox{\hyperlink{namespacemain_a68554bc08bf8532f7a348f8aaef0bfbb}{main.\+X\+\_\+train\+\_\+scaled}} = scaler.\+fit\+\_\+transform(\mbox{\hyperlink{namespacemain_a28423dd1c811407549982ebc13b3ebae}{X\+\_\+train}})
+\item 
+\mbox{\hyperlink{namespacemain_a5f7c9c9e6d14fb0a4ae8d8802158ef55}{main.\+X\+\_\+test\+\_\+scaled}} = scaler.\+transform(\mbox{\hyperlink{namespacemain_af70dc071170fa895fba5603dc28320e9}{X\+\_\+test}})
+\item 
+\mbox{\hyperlink{namespacemain_ab3349edc5bf5149822ced4642a744384}{main.\+model}} = SVC(kernel=\textquotesingle{}linear\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacemain_ab512fd3fe6f30c9effbe186dfbf0e65f}{main.\+train\+\_\+accuracy}} = model.\+score(\mbox{\hyperlink{namespacemain_a68554bc08bf8532f7a348f8aaef0bfbb}{X\+\_\+train\+\_\+scaled}}, \mbox{\hyperlink{namespacemain_ab593543e69177b99938167addecb9159}{y\+\_\+train}})
+\item 
+\mbox{\hyperlink{namespacemain_a4a0e35747aafb64ba61a5b4f4b68c598}{main.\+test\+\_\+accuracy}} = model.\+score(\mbox{\hyperlink{namespacemain_a5f7c9c9e6d14fb0a4ae8d8802158ef55}{X\+\_\+test\+\_\+scaled}}, \mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}})
+\item 
+\mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{main.\+y\+\_\+pred}} = model.\+predict(\mbox{\hyperlink{namespacemain_a5f7c9c9e6d14fb0a4ae8d8802158ef55}{X\+\_\+test\+\_\+scaled}})
+\item 
+\mbox{\hyperlink{namespacemain_a63079f610d9f2c2c2c47dd116ac40405}{main.\+accuracy}} = accuracy\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}})
+\item 
+\mbox{\hyperlink{namespacemain_a56720f23dff244fd884c5b6534d1ee3b}{main.\+precision}} = precision\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}}, average=\textquotesingle{}macro\textquotesingle{}, zero\+\_\+division=0)
+\item 
+\mbox{\hyperlink{namespacemain_ab350bed3dc2924bdd60a654924af568f}{main.\+recall}} = recall\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}}, average=\textquotesingle{}macro\textquotesingle{}, zero\+\_\+division=0)
+\item 
+\mbox{\hyperlink{namespacemain_a052a7f336e26bf89ef67653cadbd9b3e}{main.\+f1}} = f1\+\_\+score(\mbox{\hyperlink{namespacemain_af82d40cbee262c6a4f5b8b9e325734ef}{y\+\_\+test}}, \mbox{\hyperlink{namespacemain_a9279e7cb901527b6d785b0a5474e1970}{y\+\_\+pred}}, average=\textquotesingle{}macro\textquotesingle{}, zero\+\_\+division=0)
+\end{DoxyCompactItemize}

@@ -1,0 +1,47 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Namespace Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Namespace List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Namespace Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}main Namespace Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Function Documentation}{6}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}extract\_features()}{6}{subsubsection.3.1.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.2}extract\_features\_from\_audio()}{6}{subsubsection.3.1.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.1.3}plot\_histogram()}{6}{subsubsection.3.1.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.1.4}plot\_mel\_spectrogram()}{6}{subsubsection.3.1.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.1.5}recognize\_from\_microphone()}{6}{subsubsection.3.1.1.5}%
+\contentsline {subsubsection}{\numberline {3.1.1.6}reduce\_noise()}{6}{subsubsection.3.1.1.6}%
+\contentsline {subsubsection}{\numberline {3.1.1.7}transcribe\_speech()}{7}{subsubsection.3.1.1.7}%
+\contentsline {subsection}{\numberline {3.1.2}Variable Documentation}{7}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}accuracy}{7}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}audio}{7}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}f1}{7}{subsubsection.3.1.2.3}%
+\contentsline {subsubsection}{\numberline {3.1.2.4}features}{7}{subsubsection.3.1.2.4}%
+\contentsline {subsubsection}{\numberline {3.1.2.5}konuşmacı\_indeksleri}{7}{subsubsection.3.1.2.5}%
+\contentsline {subsubsection}{\numberline {3.1.2.6}konusmaci\_etiketleri}{7}{subsubsection.3.1.2.6}%
+\contentsline {subsubsection}{\numberline {3.1.2.7}model}{8}{subsubsection.3.1.2.7}%
+\contentsline {subsubsection}{\numberline {3.1.2.8}precision}{8}{subsubsection.3.1.2.8}%
+\contentsline {subsubsection}{\numberline {3.1.2.9}recall}{8}{subsubsection.3.1.2.9}%
+\contentsline {subsubsection}{\numberline {3.1.2.10}sample\_rate}{8}{subsubsection.3.1.2.10}%
+\contentsline {subsubsection}{\numberline {3.1.2.11}scaler}{8}{subsubsection.3.1.2.11}%
+\contentsline {subsubsection}{\numberline {3.1.2.12}ses\_dosyalari}{8}{subsubsection.3.1.2.12}%
+\contentsline {subsubsection}{\numberline {3.1.2.13}test\_accuracy}{8}{subsubsection.3.1.2.13}%
+\contentsline {subsubsection}{\numberline {3.1.2.14}test\_indeksler}{8}{subsubsection.3.1.2.14}%
+\contentsline {subsubsection}{\numberline {3.1.2.15}test\_size}{8}{subsubsection.3.1.2.15}%
+\contentsline {subsubsection}{\numberline {3.1.2.16}train\_accuracy}{9}{subsubsection.3.1.2.16}%
+\contentsline {subsubsection}{\numberline {3.1.2.17}train\_indeksler}{9}{subsubsection.3.1.2.17}%
+\contentsline {subsubsection}{\numberline {3.1.2.18}train\_size}{9}{subsubsection.3.1.2.18}%
+\contentsline {subsubsection}{\numberline {3.1.2.19}X}{9}{subsubsection.3.1.2.19}%
+\contentsline {subsubsection}{\numberline {3.1.2.20}X\_test}{9}{subsubsection.3.1.2.20}%
+\contentsline {subsubsection}{\numberline {3.1.2.21}X\_test\_scaled}{9}{subsubsection.3.1.2.21}%
+\contentsline {subsubsection}{\numberline {3.1.2.22}X\_train}{9}{subsubsection.3.1.2.22}%
+\contentsline {subsubsection}{\numberline {3.1.2.23}X\_train\_scaled}{9}{subsubsection.3.1.2.23}%
+\contentsline {subsubsection}{\numberline {3.1.2.24}y}{9}{subsubsection.3.1.2.24}%
+\contentsline {subsubsection}{\numberline {3.1.2.25}y\_pred}{9}{subsubsection.3.1.2.25}%
+\contentsline {subsubsection}{\numberline {3.1.2.26}y\_test}{10}{subsubsection.3.1.2.26}%
+\contentsline {subsubsection}{\numberline {3.1.2.27}y\_train}{10}{subsubsection.3.1.2.27}%
+\contentsline {section}{\numberline {3.2}ses\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}tanima Namespace Reference}{10}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{10}{subsection.3.2.1}%
+\contentsline {chapter}{\numberline {4}File Documentation}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/orakn/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Voice\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reco/python\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Project/main.py File Reference}{11}{section.4.1}%

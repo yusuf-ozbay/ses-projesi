@@ -1,0 +1,68 @@
+digraph kod_yapisi {
+    node [shape=rectangle, style=filled, color=lightblue, fontname=Arial];
+    edge [fontname=Arial, color=darkgreen];
+
+    subgraph cluster_0 {
+        label="ses_tanima Modülü";
+        color=lightgrey;
+        node [style=filled,color=white];
+        "import os";
+        "import resampy";
+        "import sounddevice as sd";
+        "import matplotlib.pyplot as plt";
+        "import numpy as np";
+        "import librosa";
+        "import speech_recognition as sr";
+        "import pyaudio";
+        "from collections import defaultdict";
+        "from sklearn.svm import SVC";
+        "from sklearn.metrics import accuracy_score, classification_report, precision_score, recall_score, f1_score";
+        "from sklearn.preprocessing import StandardScaler";
+        "import librosa.display";
+    }
+
+    subgraph cluster_1 {
+        label="Fonksiyonlar";
+        color=lightgrey;
+        node [style=filled,color=white];
+        "reduce_noise";
+        "extract_features";
+        "extract_features_from_audio";
+        "plot_histogram";
+        "plot_mel_spectrogram";
+        "transcribe_speech";
+        "recognize_from_microphone";
+    }
+
+    "import os" -> "extract_features";
+    "import resampy" -> "extract_features";
+    "import sounddevice as sd" -> "extract_features_from_audio";
+    "import matplotlib.pyplot as plt" -> "plot_histogram" -> "extract_features";
+    "import numpy as np" -> "extract_features";
+    "import librosa" -> "reduce_noise" -> "extract_features" -> "extract_features_from_audio";
+    "import librosa" -> "plot_mel_spectrogram";
+    "import speech_recognition as sr" -> "transcribe_speech" -> "recognize_from_microphone";
+    "import pyaudio" -> "recognize_from_microphone";
+    "from collections import defaultdict" -> "konuşmacı_indeksleri";
+    "from sklearn.svm import SVC" -> "model";
+    "from sklearn.metrics import accuracy_score, classification_report, precision_score, recall_score, f1_score" -> "model";
+    "from sklearn.preprocessing import StandardScaler" -> "model";
+    "import librosa.display" -> "plot_mel_spectrogram";
+
+    "extract_features" -> "plot_histogram";
+    "extract_features" -> "plot_mel_spectrogram";
+    "extract_features_from_audio" -> "plot_mel_spectrogram";
+    "extract_features_from_audio" -> "recognize_from_microphone";
+
+    "recognize_from_microphone" -> "plot_histogram";
+    "recognize_from_microphone" -> "plot_mel_spectrogram";
+
+    "model" -> "accuracy_score";
+    "model" -> "precision_score";
+    "model" -> "recall_score";
+    "model" -> "f1_score";
+    "model" -> "classification_report";
+    "model" -> "StandardScaler";
+    "model" -> "SVC";
+
+}
