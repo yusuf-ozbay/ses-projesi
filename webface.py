@@ -5,11 +5,17 @@ import librosa
 import speech_recognition as sr
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
+from textblob import TextBlob
+from transformers import pipeline
 
 # Model ve scaler dosyasını yükle
 model_tuple = joblib.load('VoiceRecognizeModel.joblib')
 svc_model = model_tuple[0]
 scaler = model_tuple[1]
+
+# Transformers duygu analizi modeli
+emotion_classifier = pipeline("sentiment-analysis")
+
 
 # Gürültü azaltma fonksiyonu
 def reduce_noise(audio, sr):
@@ -25,6 +31,20 @@ def extract_features_from_audio(audio, sample_rate):
     except Exception as e:
         print("Error encountered while extracting features from audio")
         return None
+
+
+# Duygu analizi fonksiyonları
+def analyze_emotions_with_textblob(text):
+    blob = TextBlob(text)
+    sentiment = blob.sentiment
+    emotion = "Mutlu" if sentiment.polarity > 0 else "Üzgün/Öfkeli" if sentiment.polarity < 0 else "Nötr"
+    return emotion, sentiment.polarity
+
+
+def analyze_emotions_with_transformers(text):
+    result = emotion_classifier(text)[0]
+    return result['label'], result['score']
+
 
 # Histogram çizim fonksiyonu
 def plot_histogram(features, label):
@@ -91,15 +111,23 @@ def predict_from_file(uploaded_file):
         acc = np.mean(svc_model.predict(features_scaled) == prediction)
         st.write(f"FM Değeri: {fm}")
         st.write(f"ACC Değeri: {acc}")
+
         plot_histogram(features.flatten(), prediction[0])
         plot_mel_spectrogram(audio_data, sample_rate, prediction[0])
 
-        return audio_data, sample_rate, prediction[0], transcribe_speech(uploaded_file)
+        # Duygu analizi
+        text = transcribe_speech(uploaded_file)
+        if text:
+            emotion, score = analyze_emotions_with_transformers(text)
+            st.write(f"Duygu: {emotion}, Güven: {score}")
+
+        return audio_data, sample_rate, prediction[0], text
     return None, None, "", ""
+
 
 # Menü kısmı
 st.sidebar.header("Menu")
-page = st.sidebar.radio("Sayfalar", ["Ses Tanıma", "Ses Eğitimi"])
+page = st.sidebar.radio("Sayfalar", ["Ses Tanıma", "Ses Eğitimi", "Duygu Analizi"])
 
 # Ses Tanıma Sayfası
 if page == "Ses Tanıma":
@@ -121,7 +149,7 @@ if page == "Ses Tanıma":
                     st.write("Kelime Sayısı:", word_count)
                 else:
                     st.write("Metin:", "Ses metne dönüştürülemedi.")
-                    
+
     elif option == "Mikrofondan Ses Al":
         if st.button("Kaydı Al"):
             audio_data, sample_rate, text = recognize_from_microphone()
@@ -135,15 +163,20 @@ if page == "Ses Tanıma":
                     features_scaled = scaler.transform(features)
                     prediction = svc_model.predict(features_scaled)
                     st.write(f"Tahmin Edilen Konuşmacı: {prediction[0]}")
+
                     # FM ve ACC değerlerini hesapla ve yazdır
                     decision_function = svc_model.decision_function(features_scaled)
                     fm = np.max(decision_function) - np.min(decision_function)
                     acc = np.mean(svc_model.predict(features_scaled) == prediction)
                     st.write(f"FM Değeri: {fm}")
                     st.write(f"ACC Değeri: {acc}")
+
                     plot_histogram(features.flatten(), "Mikrofon Kaydı")
                     plot_mel_spectrogram(audio_data, sample_rate, "Mikrofon Kaydı")
 
+                    # Duygu analizi
+                    emotion, score = analyze_emotions_with_transformers(text)
+                    st.write(f"Duygu: {emotion}, Güven: {score}")
             else:
                 st.write("Metin:", "Ses metne dönüştürülemedi.")
 
@@ -154,6 +187,7 @@ elif page == "Ses Eğitimi":
 
     name = st.text_input("Ses Sahibinin İsmi:")
 
+
     def send_to_training(audio_data, sample_rate, name):
         features = extract_features_from_audio(audio_data, sample_rate)
         if features is not None:
@@ -163,6 +197,7 @@ elif page == "Ses Eğitimi":
             st.success("Ses eğitime başarıyla yollandı")
         else:
             st.warning("Özellik çıkarılamadı. Lütfen geçerli bir ses dosyası seçin.")
+
 
     audio_data = None
     sample_rate = None
@@ -203,3 +238,19 @@ elif page == "Ses Eğitimi":
                     st.warning("Lütfen bir isim giriniz.")
                 else:
                     st.warning("Lütfen ses kaydı alın.")
+
+# Duygu Analizi Sayfası
+elif page == "Duygu Analizi":
+    st.header("Duygu Analizi")
+    text = st.text_area("Metin Girin:", placeholder="Bir cümle veya paragraf girin...")
+    if text:
+        st.subheader("TextBlob ile Analiz")
+        emotion_tb, polarity_tb = analyze_emotions_with_textblob(text)
+        st.write(f"Duygu: {emotion_tb}, Polarity: {polarity_tb}")
+
+        st.subheader("Transformers ile Analiz")
+        emotion_tr, score_tr = analyze_emotions_with_transformers(text)
+        st.write(f"Duygu: {emotion_tr}, Güven: {score_tr}")
+
+        # Duygu görselleştirme
+        st.bar_chart({"TextBlob": [polarity_tb], "Transformers": [score_tr]})

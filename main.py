@@ -11,14 +11,24 @@ import librosa.display
 import speech_recognition as sr
 from sklearn.preprocessing import StandardScaler
 import pyaudio
+from textblob import TextBlob
+from transformers import pipeline
 
 ## @package ses_tanima
 #  Ses Tanıma Projesi
 #  @version 1.0
 #  @date 2023
 
+
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+
+
+
 # Pyaudio modülünün çalışıp çalışmadığını kontrol edin
 print(pyaudio.__version__)
+
+# Transformers duygu analizi modeli
+emotion_classifier = pipeline("sentiment-analysis")
 
 ## Gürültü azaltma için bir fonksiyon
 #  @param audio Ses verisi
@@ -54,6 +64,16 @@ def extract_features_from_audio(audio, sample_rate):
     except Exception as e:
         print("Error encountered while extracting features from audio")
         return None
+
+def analyze_emotions_with_textblob(text):
+    blob = TextBlob(text)
+    sentiment = blob.sentiment
+    emotion = "Mutlu" if sentiment.polarity > 0 else "Üzgün/Öfkeli" if sentiment.polarity < 0 else "Nötr"
+    return emotion, sentiment.polarity
+
+def analyze_emotions_with_transformers(text):
+    result = emotion_classifier(text)[0]
+    return result['label'], result['score']
 
 def plot_histogram(features, speaker_label):
     plt.figure(figsize=(10, 4))
@@ -207,6 +227,10 @@ def recognize_from_microphone():
                 # Kelime sayma
                 word_count = len(text.split())
                 print("Kelime Sayısı:", word_count)
+
+                # Duygu analizi
+                emotion, score = analyze_emotions_with_transformers(text)
+                print(f"Duygu: {emotion}, Güven: {score}")
         except sr.UnknownValueError:
             print("Google Web Speech herhangi bir şey anlamadı")
         except sr.RequestError as e:
@@ -219,4 +243,3 @@ import joblib
 
 # Save the model and scaler
 joblib.dump((model, scaler), 'VoiceRecognizeModel.joblib')
-
