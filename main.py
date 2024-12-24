@@ -90,19 +90,22 @@ def transcribe_speech(audio, sample_rate):
 
 # Ses dosyaları ve etiketleri
 ses_dosyalari = [
-    "konusmaci1/nurullah_train.wav", "konusmaci1/nurullah_test.wav",
-    "konusmaci2/enes_train.wav", "konusmaci2/enes_test1.wav",
-    "konusmaci3/voice_yasin.wav", "konusmaci3/yasin_test1.wav",
-    "konusmaci4/halil_train.wav", "konusmaci4/halil_test.wav",
-    "konusmaci5/hasan_train.wav", "konusmaci5/hasan_test.wav"
+    "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker1/omer-sound1.wav",
+    "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker1/omer-sound2.wav",
+    "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker2/yusuf-sound1.wav",
+    "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker2/yusuf-sound2.wav",
+    "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker3/berk-sound1.wav",
+    "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker3/berk-sound2.wav",
+    "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker4/selman.wav",
+    "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker4/selman1.wav",
 ]
+
 
 konusmaci_etiketleri = [
     "konusmaci1", "konusmaci1",
     "konusmaci2", "konusmaci2",
     "konusmaci3", "konusmaci3",
     "konusmaci4", "konusmaci4",
-    "konusmaci5", "konusmaci5"
 ]
 
 X = []  # Öznitelik vektörleri
