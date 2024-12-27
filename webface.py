@@ -14,8 +14,7 @@ svc_model = model_tuple[0]
 scaler = model_tuple[1]
 
 # Transformers duygu analizi modeli
-emotion_classifier = pipeline("sentiment-analysis")
-
+emotion_classifier = pipeline("text-classification", model="bhadresh-savani/distilbert-base-uncased-emotion")
 
 # Gürültü azaltma fonksiyonu
 def reduce_noise(audio, sr):
@@ -32,19 +31,11 @@ def extract_features_from_audio(audio, sample_rate):
         print("Error encountered while extracting features from audio")
         return None
 
-
 # Duygu analizi fonksiyonları
-def analyze_emotions_with_textblob(text):
-    blob = TextBlob(text)
-    sentiment = blob.sentiment
-    emotion = "Mutlu" if sentiment.polarity > 0 else "Üzgün/Öfkeli" if sentiment.polarity < 0 else "Nötr"
-    return emotion, sentiment.polarity
-
-
 def analyze_emotions_with_transformers(text):
-    result = emotion_classifier(text)[0]
-    return result['label'], result['score']
-
+    results = emotion_classifier(text, return_all_scores=True)[0]
+    percentages = {result['label']: result['score'] * 100 for result in results}
+    return percentages
 
 # Histogram çizim fonksiyonu
 def plot_histogram(features, label):
@@ -118,12 +109,13 @@ def predict_from_file(uploaded_file):
         # Duygu analizi
         text = transcribe_speech(uploaded_file)
         if text:
-            emotion, score = analyze_emotions_with_transformers(text)
-            st.write(f"Duygu: {emotion}, Güven: {score}")
+            emotion_percentages = analyze_emotions_with_transformers(text)
+            st.write("Duygu Yüzdeleri:")
+            for emotion, percentage in emotion_percentages.items():
+                st.write(f"{emotion}: {percentage:.2f}%")
 
         return audio_data, sample_rate, prediction[0], text
     return None, None, "", ""
-
 
 # Menü kısmı
 st.sidebar.header("Menu")
@@ -175,8 +167,10 @@ if page == "Ses Tanıma":
                     plot_mel_spectrogram(audio_data, sample_rate, "Mikrofon Kaydı")
 
                     # Duygu analizi
-                    emotion, score = analyze_emotions_with_transformers(text)
-                    st.write(f"Duygu: {emotion}, Güven: {score}")
+                    emotion_percentages = analyze_emotions_with_transformers(text)
+                    st.write("Duygu Yüzdeleri:")
+                    for emotion, percentage in emotion_percentages.items():
+                        st.write(f"{emotion}: {percentage:.2f}%")
             else:
                 st.write("Metin:", "Ses metne dönüştürülemedi.")
 
@@ -187,7 +181,6 @@ elif page == "Ses Eğitimi":
 
     name = st.text_input("Ses Sahibinin İsmi:")
 
-
     def send_to_training(audio_data, sample_rate, name):
         features = extract_features_from_audio(audio_data, sample_rate)
         if features is not None:
@@ -197,7 +190,6 @@ elif page == "Ses Eğitimi":
             st.success("Ses eğitime başarıyla yollandı")
         else:
             st.warning("Özellik çıkarılamadı. Lütfen geçerli bir ses dosyası seçin.")
-
 
     audio_data = None
     sample_rate = None
@@ -244,13 +236,8 @@ elif page == "Duygu Analizi":
     st.header("Duygu Analizi")
     text = st.text_area("Metin Girin:", placeholder="Bir cümle veya paragraf girin...")
     if text:
-        st.subheader("TextBlob ile Analiz")
-        emotion_tb, polarity_tb = analyze_emotions_with_textblob(text)
-        st.write(f"Duygu: {emotion_tb}, Polarity: {polarity_tb}")
-
         st.subheader("Transformers ile Analiz")
-        emotion_tr, score_tr = analyze_emotions_with_transformers(text)
-        st.write(f"Duygu: {emotion_tr}, Güven: {score_tr}")
-
-        # Duygu görselleştirme
-        st.bar_chart({"TextBlob": [polarity_tb], "Transformers": [score_tr]})
+        emotion_percentages = analyze_emotions_with_transformers(text)
+        st.write("Duygu Yüzdeleri:")
+        for emotion, percentage in emotion_percentages.items():
+            st.write(f"{emotion}: {percentage:.2f}%")
