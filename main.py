@@ -125,7 +125,7 @@ ses_dosyalari = [
     "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker3/berk-sound1.wav",
     "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker3/berk-sound2.wav",
     "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker4/selman1.wav",
-    "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker4/selman2.wav",
+    "C:/Users/ASUS/Desktop/Project/School/ses-projesi/speaker4/selmen2.wav",
 ]
 
 konusmaci_etiketleri = [
