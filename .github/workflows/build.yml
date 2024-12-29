@@ -10,7 +10,7 @@ name: Build
 on:
   push:
     branches:
-      - main  # Ana dal için çalıştırılacak
+      - main
   pull_request:
 
 jobs:
@@ -21,15 +21,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Analiz için tam geçmiş gerekli
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
+      - name: Install dependencies for PyAudio
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y portaudio19-dev
 
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.x  # Projeye uygun Python sürümünü seçin
+          python-version: 3.x  # Projeye uygun Python sürümü
 
-      - name: Install Dependencies
+      - name: Install Python dependencies
         run: |
+          pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Run SonarQube Scan
@@ -37,3 +43,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
